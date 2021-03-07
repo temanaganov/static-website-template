@@ -54,11 +54,7 @@ function scripts() {
 }
 
 function copy() {
-	return src(['src/static/**/*', '!src/static/favicons/**/*'], { nodir: true }).pipe(dest('dist/static'));
-}
-
-function favicons() {
-	return src('src/static/favicons/*').pipe(dest('dist'));
+	return src('src/static/**/*').pipe(dest('dist'));
 }
 
 function clean() {
@@ -74,7 +70,7 @@ function startwatch() {
 	watch('src/pug/**/*.pug', series(html, readyReload));
 	watch(`src/styles/**/*.${sassSyntax}`, styles);
 	watch('src/js/**/*.js', series(scripts, readyReload));
-	watch('src/static/**/*', series(copy, favicons, readyReload));
+	watch('src/static/**/*', series(copy, readyReload));
 }
 
 exports.browsersync = browsersync;
@@ -83,8 +79,7 @@ exports.scripts = scripts;
 exports.styles = styles;
 exports.html = html;
 exports.copy = copy;
-exports.favicons = favicons;
 exports.clean = clean;
 
-exports.build = series(clean, parallel(html, styles, scripts, copy, favicons));
-exports.default = series(clean, parallel(html, styles, scripts, copy, favicons), parallel(browsersync, startwatch));
+exports.build = series(clean, parallel(html, styles, scripts, copy));
+exports.default = series(clean, parallel(html, styles, scripts, copy), parallel(browsersync, startwatch));
