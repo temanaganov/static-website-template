@@ -44,7 +44,7 @@ function styles() {
 }
 
 function scripts() {
-	return src('src/js/*.js')
+	return src('src/js/**/*.js')
 		.pipe(plumber())
 		.pipe(concat('index.js'))
 		.pipe(babel())
