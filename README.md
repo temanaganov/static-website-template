@@ -2,7 +2,7 @@
 
 ## Template for making static websites with Pug + Sass / SCSS
 
-***
+---
 
 ### HTML
 
@@ -14,4 +14,5 @@
 1. The template uses postcss plugins to convert CSS files. You can add your plugins, if you need
 
 ### Static files
+
 1. All static files are in "static" folder

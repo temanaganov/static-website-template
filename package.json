@@ -1,11 +1,12 @@
 {
   "name": "static-website-template",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "Template for creating static sites",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
+    "prettier": "prettier --write .",
     "editorconfig": "editorconfig-checker"
   },
   "keywords": [],
@@ -31,6 +32,7 @@
     "postcss": "^8.2.4",
     "postcss-csso": "^5.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^14.0.0"
+    "postcss-import": "^14.0.0",
+    "prettier": "^2.2.1"
   }
 }
