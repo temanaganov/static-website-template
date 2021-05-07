@@ -23,7 +23,11 @@ function browsersync() {
 function html() {
     return src('src/pug/pages/**/*.pug')
         .pipe(plumber())
-        .pipe(pug())
+        .pipe(
+            pug({
+                basedir: 'src/pug',
+            })
+        )
         .pipe(
             htmlmin({
                 collapseWhitespace: true,
