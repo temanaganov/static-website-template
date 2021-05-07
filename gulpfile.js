@@ -10,67 +10,65 @@ const uglify = require('gulp-uglify-es').default;
 const plumber = require('gulp-plumber');
 const del = require('del');
 
-const sassSyntax = 'sass';
-
 function browsersync() {
-	browserSync.init({
-		server: 'dist/',
-		online: true,
-		notify: false,
-		ui: false,
-	});
+    browserSync.init({
+        server: 'dist/',
+        online: true,
+        notify: false,
+        ui: false,
+    });
 }
 
 function html() {
-	return src('src/pug/pages/**/*.pug')
-		.pipe(plumber())
-		.pipe(pug())
-		.pipe(
-			htmlmin({
-				collapseWhitespace: true,
-				removeComments: true,
-			})
-		)
-		.pipe(dest('dist'));
+    return src('src/pug/pages/**/*.pug')
+        .pipe(plumber())
+        .pipe(pug())
+        .pipe(
+            htmlmin({
+                collapseWhitespace: true,
+                removeComments: true,
+            })
+        )
+        .pipe(dest('dist'));
 }
 
 function styles() {
-	return src(`src/styles/**/*.${sassSyntax}`)
-		.pipe(plumber())
-		.pipe(sass())
-		.pipe(postcss())
-		.pipe(dest('dist/styles'))
-		.pipe(browserSync.stream());
+    return src(`src/styles/**/*.scss`)
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(postcss())
+        .pipe(dest('dist/styles'))
+        .pipe(browserSync.stream());
 }
 
 function scripts() {
-	return src('src/js/**/*.js')
-		.pipe(plumber())
-		.pipe(concat('index.js'))
-		.pipe(babel())
-		.pipe(uglify())
-		.pipe(dest('dist/js/'))
-		.pipe(browserSync.stream());
+    return src('src/js/**/*.js')
+        .pipe(plumber())
+        .pipe(concat('index.js'))
+        .pipe(babel())
+        .pipe(uglify())
+        .pipe(dest('dist/js/'))
+        .pipe(browserSync.stream());
 }
 
 function copy() {
-	return src('src/static/**/*').pipe(dest('dist'));
+    return src('src/static/**/*').pipe(dest('dist'));
 }
 
 function clean() {
-	return del('dist', { force: true });
+    return del('dist', { force: true });
 }
 
 function readyReload(cb) {
-	browserSync.reload();
-	cb();
+    browserSync.reload();
+    cb();
 }
 
 function startwatch() {
-	watch('src/pug/**/*.pug', series(html, readyReload));
-	watch(`src/styles/**/*.${sassSyntax}`, styles);
-	watch('src/js/**/*.js', series(scripts, readyReload));
-	watch('src/static/**/*', series(copy, readyReload));
+    watch('src/pug/**/*.pug', series(html, readyReload));
+    watch(`src/styles/**/*.scss`, styles);
+    watch('src/js/**/*.js', series(scripts, readyReload));
+    watch('src/static/**/*', series(copy, readyReload));
 }
 
 exports.browsersync = browsersync;

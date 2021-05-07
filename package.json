@@ -7,7 +7,9 @@
     "start": "gulp",
     "build": "gulp build",
     "prettier": "prettier --write .",
-    "editorconfig": "editorconfig-checker"
+    "editorconfig": "editorconfig-checker",
+    "stylelint": "stylelint 'src/**/*{sass,scss,css}'",
+    "stylelint-fix": "stylelint 'src/**/*{sass,scss,css}' --fix"
   },
   "keywords": [],
   "author": "Artem Naganov <artemnaganov10@gmail.com>",
@@ -33,6 +35,10 @@
     "postcss-csso": "^5.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.0.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended": "^5.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.19.0"
   }
 }
