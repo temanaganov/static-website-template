@@ -3,6 +3,7 @@ const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
 const htmlmin = require('gulp-htmlmin');
 const sass = require('gulp-sass').sync;
+const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
@@ -35,6 +36,11 @@ function html() {
 function styles() {
     return src(`src/styles/**/*.scss`)
         .pipe(plumber())
+        .pipe(
+            stylelint({
+                reporters: [{ formatter: 'string', console: true }],
+            })
+        )
         .pipe(sass())
         .pipe(postcss())
         .pipe(dest('dist/styles'))
