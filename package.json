@@ -46,6 +46,9 @@
     "stylelint-scss": "^3.19.0"
   },
   "lint-staged": {
-    "*.scss": ["npm run prettier", "npm run stylelint-fix"]
+    "*.scss": [
+      "npm run prettier",
+      "npm run stylelint-fix"
+    ]
   }
 }
