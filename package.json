@@ -10,8 +10,8 @@
     "test": "lint-staged",
     "prettier": "prettier --write .",
     "editorconfig": "editorconfig-checker",
-    "stylelint": "stylelint 'src/**/*{sass,scss,css}'",
-    "stylelint:fix": "stylelint 'src/**/*{sass,scss,css}' --fix"
+    "stylelint": "stylelint 'src/**/*.scss'",
+    "stylelint:fix": "stylelint 'src/**/*.scss' --fix"
   },
   "keywords": [],
   "author": "Artem Naganov <artemnaganov10@gmail.com>",
