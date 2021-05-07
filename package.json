@@ -1,6 +1,6 @@
 {
   "name": "static-website-template",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Template for creating static sites",
   "main": "index.js",
   "scripts": {
@@ -11,10 +11,11 @@
     "prettier": "prettier --write .",
     "editorconfig": "editorconfig-checker",
     "stylelint": "stylelint 'src/**/*{sass,scss,css}'",
-    "stylelint-fix": "stylelint 'src/**/*{sass,scss,css}' --fix"
+    "stylelint:fix": "stylelint 'src/**/*{sass,scss,css}' --fix"
   },
   "keywords": [],
   "author": "Artem Naganov <artemnaganov10@gmail.com>",
+  "private": true,
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -48,7 +49,7 @@
   "lint-staged": {
     "*.scss": [
       "npm run prettier",
-      "npm run stylelint-fix"
+      "npm run stylelint:fix"
     ]
   }
 }
