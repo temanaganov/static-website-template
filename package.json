@@ -6,6 +6,8 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
+    "prepare": "husky install",
+    "test": "lint-staged",
     "prettier": "prettier --write .",
     "editorconfig": "editorconfig-checker",
     "stylelint": "stylelint 'src/**/*{sass,scss,css}'",
@@ -30,6 +32,8 @@
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.1.0",
     "gulp-uglify-es": "^2.0.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.4",
     "postcss-csso": "^5.0.0",
@@ -40,5 +44,8 @@
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.19.0"
+  },
+  "lint-staged": {
+    "*.scss": ["npm run prettier", "npm run stylelint-fix"]
   }
 }
