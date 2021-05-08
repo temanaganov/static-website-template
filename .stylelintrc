@@ -8,7 +8,7 @@
         "at-rule-no-unknown": null,
         "alpha-value-notation": "number",
         "hue-degree-notation": "number",
-        "color-function-notation": "modern",
+        "color-function-notation": "legacy",
         "length-zero-no-unit": true,
         "font-weight-notation": "numeric",
         "function-url-no-scheme-relative": true,
