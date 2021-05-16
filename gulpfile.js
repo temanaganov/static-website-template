@@ -2,7 +2,7 @@ const { src, dest, parallel, series, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
 const htmlmin = require('gulp-htmlmin');
-const sass = require('gulp-sass').sync;
+const sass = require('gulp-sass');
 const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
 const babel = require('gulp-babel');
@@ -10,6 +10,8 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
 const plumber = require('gulp-plumber');
 const del = require('del');
+
+sass.compiler = require('sass');
 
 function browsersync() {
     browserSync.init({
@@ -45,7 +47,7 @@ function styles() {
                 reporters: [{ formatter: 'string', console: true }],
             })
         )
-        .pipe(sass())
+        .pipe(sass.sync())
         .pipe(postcss())
         .pipe(dest('dist/styles'))
         .pipe(browserSync.stream());
