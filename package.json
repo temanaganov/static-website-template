@@ -1,6 +1,6 @@
 {
   "name": "static-website-template",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Template for creating static sites",
   "main": "index.js",
   "scripts": {
