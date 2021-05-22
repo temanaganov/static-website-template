@@ -1,9 +1,6 @@
 {
     "extends": "stylelint-config-recommended",
-    "plugins": [
-        "stylelint-scss",
-        "stylelint-order"
-    ],
+    "plugins": ["stylelint-scss", "stylelint-order"],
     "rules": {
         "at-rule-no-unknown": null,
         "alpha-value-notation": "number",
@@ -74,9 +71,7 @@
         "rule-empty-line-before": [
             "always",
             {
-                "except": [
-                    "first-nested"
-                ]
+                "except": ["first-nested"]
             }
         ],
         "media-feature-colon-space-after": "always",
@@ -91,10 +86,7 @@
         "at-rule-empty-line-before": [
             "always",
             {
-                "except": [
-                    "first-nested",
-                    "blockless-after-blockless"
-                ]
+                "except": ["first-nested", "blockless-after-blockless"]
             }
         ],
         "at-rule-name-case": "lower",
@@ -104,12 +96,8 @@
         "comment-empty-line-before": [
             "always",
             {
-                "except": [
-                    "first-nested"
-                ],
-                "ignore": [
-                    "after-comment"
-                ]
+                "except": ["first-nested"],
+                "ignore": ["after-comment"]
             }
         ],
         "comment-whitespace-inside": "always",
@@ -122,10 +110,7 @@
         "scss/at-import-no-partial-leading-underscore": true,
         "scss/at-rule-no-unknown": true,
         "scss/selector-no-redundant-nesting-selector": true,
-        "order/order": [
-            "custom-properties",
-            "declarations"
-        ],
+        "order/order": ["custom-properties", "dollar-variables", "declarations", "rules", "at-rules"],
         "order/properties-order": [
             "all",
             "position",
