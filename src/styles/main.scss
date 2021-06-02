@@ -5,8 +5,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: $background-color;
+    color: $text-color;
 }
 
 h1 {

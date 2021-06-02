@@ -43,6 +43,7 @@ module.exports = function (plop) {
             {
                 type: 'add',
                 path: 'src/styles/components/_{{title}}.scss',
+                templateFile: '.plop/component-style-template.hbs',
             },
         ],
     });
